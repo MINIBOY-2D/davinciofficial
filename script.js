@@ -30,13 +30,13 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
     });
 
-    // Formulaire EmailJS avec cooldown (uniquement sur la page Contact)
+    // Formulaire EmailJS avec reCAPTCHA et cooldown
     if (document.getElementById('contact-form')) {
         const form = document.getElementById('contact-form');
         const formMessage = document.getElementById('form-message');
+        const submitButton = form.querySelector("button[type='submit']");
         const cooldownKey = "contactCooldown";
         const cooldownSeconds = 60;
-        const submitButton = form.querySelector("button[type='submit']");
 
         const isCooldownActive = () => {
             const expiry = localStorage.getItem(cooldownKey);
@@ -86,20 +86,32 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
+            const recaptchaResponse = grecaptcha.getResponse();
+            if (!recaptchaResponse) {
+                formMessage.textContent = "⚠️ Merci de valider le reCAPTCHA.";
+                formMessage.style.color = "orange";
+                return;
+            }
+
+            submitButton.disabled = true;
+
             emailjs.send('service_qy2iekx', 'template_rh7h7e3', {
                 name: form.name.value,
                 email: form.email.value,
-                message: form.message.value
+                message: form.message.value,
+                "g-recaptcha-response": recaptchaResponse
             })
             .then(() => {
                 formMessage.textContent = '✅ Message envoyé avec succès !';
                 formMessage.style.color = 'green';
                 form.reset();
+                grecaptcha.reset();
                 startCooldown();
             }, (error) => {
                 formMessage.textContent = '❌ Erreur lors de l\'envoi. Veuillez réessayer.';
                 formMessage.style.color = 'red';
                 console.error('Erreur EmailJS:', error);
+                submitButton.disabled = false;
             });
         });
     }
