@@ -677,3 +677,24 @@ footer {
 .custom-link:hover {
     color: rgb(19, 8, 104);
 }
+/* Conteneur de la carte Google Maps */
+.map-container {
+    display: flex;
+    justify-content: center; /* Centre horizontalement */
+    margin: 30px 0; /* Ajoute un espacement au-dessus et en dessous */
+}
+
+/* Style de l'iframe pour s'assurer qu'il est responsive */
+.map-container iframe {
+    max-width: 100%; /* S'assure que la carte ne dépasse pas la largeur du conteneur */
+    border-radius: 10px; /* Ajoute des coins arrondis pour un look cohérent */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajoute une ombre légère */
+}
+
+/* Responsive pour les petits écrans */
+@media (max-width: 768px) {
+    .map-container iframe {
+        width: 100%; /* Prend toute la largeur disponible sur mobile */
+        height: 300px; /* Réduit la hauteur pour éviter un défilement excessif */
+    }
+}
