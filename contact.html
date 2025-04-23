@@ -11,6 +11,7 @@
             emailjs.init("ekTqImaU_6dmpUtsp"); // Remplacez par votre User ID (Public Key) d'EmailJS
         })();
     </script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
     <!-- Header -->
@@ -67,6 +68,7 @@
             <input type="text" id="name" name="name" placeholder="Votre nom" required>
             <input type="email" id="email" name="email" placeholder="Votre email" required>
             <textarea id="message" name="message" placeholder="Votre message" required></textarea>
+            <div class="g-recaptcha" data-sitekey="6Le7fSErAAAAACGmL3d0tLVTg0Uf7QHr2APHVgLE"></div>
             <button type="submit">Envoyer</button>
         </form>
         <p id="form-message"></p>
