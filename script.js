@@ -99,7 +99,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 name: form.name.value,
                 email: form.email.value,
                 message: form.message.value,
-                "g-recaptcha-response": recaptchaResponse
             })
             .then(() => {
                 formMessage.textContent = '✅ Message envoyé avec succès !';
