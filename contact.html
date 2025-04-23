@@ -14,8 +14,51 @@
     </script>
 </head>
 <body>
+    <!-- Header -->
     <header>
-        <!-- contenu de l'en-tête (inchangé) -->
+        <nav class="navbar">
+            <div class="nav-left">
+                <div class="logo">
+                    <a href="index.html"><img src="image/logo/DaVinci black.png" alt="DaVinci Logo" class="logo-img logo-white"></a>
+                    <a href="index.html"><img src="image/logo/DaVinci white.png" alt="DaVinci Logo" class="logo-img logo-black"></a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="about.html">À propos</a></li>
+                    <li><a href="projects.html">Projets</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <label class="theme-switch">
+                    <input type="checkbox" class="theme-switch__checkbox" id="theme-toggle">
+                    <div class="theme-switch__container">
+                        <div class="theme-switch__clouds"></div>
+                        <div class="theme-switch__stars-container">
+                            <!-- SVG Stars -->
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144 55" fill="none">
+                                <!-- (chemin des étoiles tronqué pour la lisibilité) -->
+                                <path d="..." fill="currentColor"></path>
+                            </svg>
+                        </div>
+                        <div class="theme-switch__circle-container">
+                            <div class="theme-switch__sun-moon-container">
+                                <div class="theme-switch__moon">
+                                    <div class="theme-switch__spot"></div>
+                                    <div class="theme-switch__spot"></div>
+                                    <div class="theme-switch__spot"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </label>
+                <button class="menu-toggle">
+                    <span class="burger-line line1"></span>
+                    <span class="burger-line line2"></span>
+                    <span class="burger-line line3"></span>
+                </button>
+            </div>
+        </nav>
     </header>
 
     <!-- Section Contact -->
@@ -37,6 +80,7 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <p>© 2025 DaVinci Official, <a href="https://lyc-couffignal-strasbourg.site.ac-strasbourg.fr/" class="custom-link">Lycée Couffignal.</a> Tous droits réservés.</p>
     </footer>
